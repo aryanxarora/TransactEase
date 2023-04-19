@@ -1,1 +1,1 @@
-# vanier-app-dev-1
+# Application Development 1 (Vanier College)

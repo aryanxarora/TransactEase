@@ -19,19 +19,19 @@ namespace Lab1
             this.score3 = score3;
         }
 
-        public double getScore1 
+        public double _Score1 
         {
             get { return score1; }
             set { score1 = value; } 
         }
 
-        public double getScore2
+        public double _Score2
         {
             get { return score2; }
             set { score2 = value; }
         }
 
-        public double getScore3
+        public double _Score3
         {
             get { return score3; }
             set { score3 = value; }

@@ -29,6 +29,16 @@ namespace TransactEase
             this.accountBalance = accountBalance;
         }
 
+        public Account(int accountNumber, string customerName, string customerAddress, string customerPhone, string customerSIN, double accountBalance)
+        {
+            this.accountNumber = accountNumber;
+            this.customerName = customerName;
+            this.customerAddress = customerAddress;
+            this.customerPhone = customerPhone;
+            this.customerSIN = customerSIN;
+            this.accountBalance = accountBalance;
+        }
+
         public int AccountNumber { get { return accountNumber; }}
         public String CustomerName
         {

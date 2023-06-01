@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="ShippingChargesInterface" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Weight" HorizontalAlignment="Left" Margin="83,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="weight" HorizontalAlignment="Left" Height="23" Margin="83,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="222,98,0,0" VerticalAlignment="Top"/>
+        <Button Content="Calculate Shipping Charge" HorizontalAlignment="Left" Margin="83,179,0,0" VerticalAlignment="Top" Width="162" Click="Button_Click"/>
+        <Label Content="Fees" HorizontalAlignment="Left" Margin="83,262,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="displayFees" Content="" HorizontalAlignment="Left" Margin="83,293,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Miles" HorizontalAlignment="Left" Margin="404,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="miles" HorizontalAlignment="Left" Height="23" Margin="404,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

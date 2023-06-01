@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="DistanceTraveledInterface" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Speed" HorizontalAlignment="Left" Margin="101,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Time" HorizontalAlignment="Left" Margin="257,79,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="speed" HorizontalAlignment="Left" Height="23" Margin="101,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="time" HorizontalAlignment="Left" Height="23" Margin="257,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Calculate Distance" HorizontalAlignment="Left" Margin="101,214,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click"/>
+        <Label Content="Distance" HorizontalAlignment="Left" Margin="101,289,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="displayDistance" Content="" HorizontalAlignment="Left" Margin="101,329,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+
     </Grid>
 </Window>

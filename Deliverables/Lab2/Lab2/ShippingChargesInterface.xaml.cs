@@ -23,5 +23,12 @@ namespace Lab2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            double _weight = Double.Parse(weight.Text);
+            ShippingCharges sc = new ShippingCharges(_weight);
+            displayFees.SetValue(Label.ContentProperty, sc.calculateShippingCharge(Double.Parse(miles.Text)).ToString());
+        }
     }
 }

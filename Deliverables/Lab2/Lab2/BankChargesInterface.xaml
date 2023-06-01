@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="BankChargesInterface" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Balance" HorizontalAlignment="Left" Margin="108,59,0,0" VerticalAlignment="Top"/>
+        <Label Content="Checks" HorizontalAlignment="Left" Margin="264,59,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="balance" HorizontalAlignment="Left" Height="23" Margin="80,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="checks" HorizontalAlignment="Left" Height="23" Margin="245,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Calculate Monthly Fees" HorizontalAlignment="Left" Margin="94,147,0,0" VerticalAlignment="Top" Width="164" Click="Button_Click"/>
+        <Label Content="Monthly Fees" HorizontalAlignment="Left" Margin="80,236,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="displayFees" Content="" HorizontalAlignment="Left" Margin="80,277,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+
     </Grid>
 </Window>

@@ -23,5 +23,13 @@ namespace Lab2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            double _speed = Double.Parse(speed.Text);
+            double _time = Double.Parse(time.Text);
+            DistanceTraveled dt = new DistanceTraveled(_speed, _time);
+            displayDistance.SetValue(Label.ContentProperty, dt.getDistance().ToString());
+        }
     }
 }

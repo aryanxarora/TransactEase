@@ -23,5 +23,13 @@ namespace Lab2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            double _balance = Double.Parse(balance.Text);
+            int _checks = int.Parse(checks.Text);
+            BankCharges bc = new BankCharges(_balance, _checks);
+            displayFees.SetValue(Label.ContentProperty, bc.calculateMonthlyFees().ToString());
+        }
     }
 }

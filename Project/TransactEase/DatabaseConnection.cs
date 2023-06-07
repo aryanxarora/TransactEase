@@ -31,6 +31,8 @@ namespace TransactEase
                     {"sin", a.CustomerSIN},
                     {"balance", a.AccountBalance}
                 });
+
+                MessageBox.Show("Account Created!");
             }
             catch (Exception ex)
             {

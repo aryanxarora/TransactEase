@@ -8,12 +8,12 @@
         Title="TransactEase" Height="699.279" Width="961.365">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="845*"/>
-            <ColumnDefinition Width="294*"/>
+            <ColumnDefinition Width="698*"/>
+            <ColumnDefinition Width="255*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="TransactEase" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Every Bankers Trust" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <ListView HorizontalAlignment="Left" Height="570" Margin="10,88,0,0" VerticalAlignment="Top" Width="935" ItemsSource="{Binding accList}" Grid.ColumnSpan="2">
+        <Label Content="TransactEase" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="37" Width="129"/>
+        <Label Content="Every Bankers Trust" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontStyle="Italic" Height="26" Width="111"/>
+        <ListView x:Name="accountsList" HorizontalAlignment="Left" Height="570" Margin="10,88,0,0" VerticalAlignment="Top" Width="935" ItemsSource="{Binding accList}" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding AccountNumber}" Header="Account Number" Width="150"></GridViewColumn>
@@ -25,6 +25,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Open Account" Grid.Column="1" HorizontalAlignment="Left" Margin="100,17,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click" Height="20"/>
+        <Button Content="Manage Account" Grid.Column="1" HorizontalAlignment="Left" Margin="100,48,0,0" VerticalAlignment="Top" Width="138" Height="20"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Button_Click_1" Height="20"/>
 
     </Grid>
 </Window>

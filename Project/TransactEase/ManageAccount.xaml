@@ -1,0 +1,22 @@
+﻿<Window x:Class="TransactEase.ManageAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TransactEase"
+        mc:Ignorable="d"
+        Title="ManageAccount" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="customerName" Content="Account Holder" HorizontalAlignment="Left" Margin="14,17,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="14,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone:" HorizontalAlignment="Left" Margin="14,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="customerAddress" Content="123 Address Street" HorizontalAlignment="Left" Margin="81,74,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Label x:Name="customerPhone" Content="5145551234" HorizontalAlignment="Left" Margin="81,93,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Label Content="SIN:" HorizontalAlignment="Left" Margin="14,112,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="customerSIN" Content="123456789" HorizontalAlignment="Left" Margin="81,112,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Label Content="Current Balance" HorizontalAlignment="Right" Margin="0,19,13,0" VerticalAlignment="Top"/>
+        <Label x:Name="customerBalance" Content="$42034.83" HorizontalAlignment="Right" Margin="0,45,13,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="accountNumber" Content="(#1093478)" HorizontalAlignment="Left" Margin="14,46,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

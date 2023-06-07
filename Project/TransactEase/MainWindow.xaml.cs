@@ -66,5 +66,18 @@ namespace TransactEase
             accList = DB.ReadAllAccounts();
             accountsList.ItemsSource = accList;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Account selected = (Account)accountsList.SelectedItem;
+            if(selected == null)
+            {
+                MessageBox.Show("Please Select Account");
+            } else
+            {
+                ManageAccount ma = new ManageAccount(selected);
+                ma.Show();
+            }
+        }
     }
 }

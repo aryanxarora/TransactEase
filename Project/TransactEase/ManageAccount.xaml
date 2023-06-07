@@ -17,6 +17,17 @@
         <Label Content="Current Balance" HorizontalAlignment="Right" Margin="0,19,13,0" VerticalAlignment="Top"/>
         <Label x:Name="customerBalance" Content="$42034.83" HorizontalAlignment="Right" Margin="0,45,13,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="accountNumber" Content="(#1093478)" HorizontalAlignment="Left" Margin="14,46,0,0" VerticalAlignment="Top"/>
+        <ListView HorizontalAlignment="Left" Height="251" Margin="14,158,0,0" VerticalAlignment="Top" Width="765" ItemsSource="{Binding transactions}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ID}" Header="ID" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Timestamp}" Header="Timestamp" Width="150"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" Width="250"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Credit}" Header="Credit" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Debit}" Header="Debit" Width="100"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

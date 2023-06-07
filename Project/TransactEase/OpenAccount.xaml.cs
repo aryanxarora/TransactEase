@@ -19,11 +19,21 @@ namespace TransactEase
     /// </summary>
     public partial class OpenAccount : Window
     {
-
-        DatabaseConnection DB = new DatabaseConnection();
         public OpenAccount()
         {
             InitializeComponent();
+        }
+
+        private int generateAccountNumber()
+        {
+            List<Account> accList = DatabaseConnection.ReadAllAccounts();
+            Random rand = new Random();
+            int generatedNumber = rand.Next(10000, 100000);
+            while(accList.Any(acc => acc.AccountNumber == generatedNumber))
+            {
+                generatedNumber = rand.Next(10000, 100000);
+            }
+            return generatedNumber;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,8 +42,9 @@ namespace TransactEase
             string address = customerAddress.Text;
             string phone = customerPhone.Text;
             string sin = customerSIN.Text;
-            Account account = new Account(name, address, phone, sin, 0);
-            DB.CreateAccount(account);
+            string password = customerPassword.Text;
+            Account account = new Account(generateAccountNumber(), name, address, phone, sin, password, 0);
+            DatabaseConnection.CreateAccount(account);
         }
     }
 }

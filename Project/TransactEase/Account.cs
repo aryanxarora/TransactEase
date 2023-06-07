@@ -9,33 +9,23 @@ namespace TransactEase
 {
     public class Account
     {
-        private static int serialGen = 591827;
         private int accountNumber;
         private String customerName;
         private String customerAddress;
         private String customerPhone;
         private String customerSIN;
         private double accountBalance;
+        private String password;
         //private List<Transcation> transactions = new List<Transcation>();
 
-        public Account(string customerName, string customerAddress, string customerPhone, string customerSIN, double accountBalance)
-        {
-            this.accountNumber = serialGen;
-            serialGen++;
-            this.customerName = customerName;
-            this.customerAddress = customerAddress;
-            this.customerPhone = customerPhone;
-            this.customerSIN = customerSIN;
-            this.accountBalance = accountBalance;
-        }
-
-        public Account(int accountNumber, string customerName, string customerAddress, string customerPhone, string customerSIN, double accountBalance)
+        public Account(int accountNumber, string customerName, string customerAddress, string customerPhone, string customerSIN, string password, double accountBalance)
         {
             this.accountNumber = accountNumber;
             this.customerName = customerName;
             this.customerAddress = customerAddress;
             this.customerPhone = customerPhone;
             this.customerSIN = customerSIN;
+            this.password = password;
             this.accountBalance = accountBalance;
         }
 
@@ -63,6 +53,12 @@ namespace TransactEase
         public double AccountBalance
         {
             get { return accountBalance; }
+        }
+
+        public String Password
+        {
+            get { return password; }
+            set { password = value; }
         }
     }
 }

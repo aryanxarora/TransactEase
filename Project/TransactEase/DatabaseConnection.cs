@@ -11,9 +11,9 @@ namespace TransactEase
 {
     class DatabaseConnection
     {
-        private readonly string connectionUri = "mongodb+srv://aryanarora:Aryan@desk-app-cluster.zvakkim.mongodb.net/?retryWrites=true&w=majority";
+        private static readonly string connectionUri = "mongodb+srv://aryanarora:Aryan@desk-app-cluster.zvakkim.mongodb.net/?retryWrites=true&w=majority";
 
-        public void CreateAccount(Account a)
+        public static void CreateAccount(Account a)
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
@@ -29,6 +29,7 @@ namespace TransactEase
                     {"address", a.CustomerAddress},
                     {"phone", a.CustomerPhone},
                     {"sin", a.CustomerSIN},
+                    {"password", a.Password},
                     {"balance", a.AccountBalance}
                 });
 
@@ -36,11 +37,11 @@ namespace TransactEase
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error", "Information");
+                MessageBox.Show("error", ex.ToString());
             }
         }
 
-        public Account ReadAccount(int accountNumber)
+        public static Account ReadAccount(int accountNumber)
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
@@ -52,14 +53,14 @@ namespace TransactEase
 
             if (document != null)
             {
-                Account account = new Account(document["account"].AsInt32, document["name"].AsString, document["address"].AsString, document["phone"].AsString, document["sin"].AsString, document["balance"].AsDouble);
+                Account account = new Account(document["account"].AsInt32, document["name"].AsString, document["address"].AsString, document["phone"].AsString, document["sin"].AsString, document["password"].AsString, document["balance"].AsDouble);
                 return account;
             }
 
             return null; // Account not found
         }
 
-        public List<Account> ReadAllAccounts()
+        public static List<Account> ReadAllAccounts()
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
@@ -72,7 +73,7 @@ namespace TransactEase
 
             foreach (var document in documents)
             {
-                Account account = new Account(document["account"].AsInt32, document["name"].AsString, document["address"].AsString, document["phone"].AsString, document["sin"].AsString, document["balance"].AsDouble);
+                Account account = new Account(document["account"].AsInt32, document["name"].AsString, document["address"].AsString, document["phone"].AsString, document["sin"].AsString, document["password"].AsString, document["balance"].AsDouble);
                 accounts.Add(account);
             }
 
@@ -80,7 +81,7 @@ namespace TransactEase
         }
 
 
-        public void UpdateAccount(Account a)
+        public static void UpdateAccount(Account a)
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
@@ -98,7 +99,7 @@ namespace TransactEase
             collection.UpdateOne(filter, update);
         }
 
-        public void DeleteAccount(int accountNumber)
+        public static void DeleteAccount(int accountNumber)
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);

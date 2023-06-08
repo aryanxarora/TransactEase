@@ -9,12 +9,11 @@
     <Grid>
         <Label Content="Farmers Market" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label Content="By Aryan Arora" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="704,16,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="704,47,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="613,47,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListView HorizontalAlignment="Left" Height="316" Margin="10,83,0,0" VerticalAlignment="Top" Width="769"  ItemsSource="{Binding Products}">
+        <Button Content="Add" HorizontalAlignment="Left" Margin="704,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="704,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <ListView x:Name="productsList" HorizontalAlignment="Left" Height="316" Margin="10,83,0,0" VerticalAlignment="Top" Width="769"  ItemsSource="{Binding products}">
             <ListView.View>
-                <GridView>
+                <GridView> 
                     <GridViewColumn DisplayMemberBinding="{Binding _id}" Header="Product ID" Width="150"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding _name}" Header="Product Name" Width="300"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding _weight}" Header="Weight (kg)" Width="150"></GridViewColumn>
@@ -22,6 +21,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="612,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

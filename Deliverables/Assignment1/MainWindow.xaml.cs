@@ -20,23 +20,36 @@ namespace Assignment1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<FarmersMarket> products = new List<FarmersMarket>();
-        public List<FarmersMarket> Products
+        public List<FarmersMarket> products
         {
-            get { return products;  }
-            set { products = value; }
+            get;
+            set;
         }
         public MainWindow()
         {
             InitializeComponent();
 
-            products.Add(new FarmersMarket(1, "Apple", 23, 2.10));
-            products.Add(new FarmersMarket(2, "Orange", 20, 2.49));
-            products.Add(new FarmersMarket(3, "Raspberry", 25, 2.35));
-            products.Add(new FarmersMarket(4, "Blueberry", 29, 1.45));
-            products.Add(new FarmersMarket(5, "Cauliflower", 24, 2.22));
+            products = DatabaseConnection.ReadProducts();
 
             DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            products = DatabaseConnection.ReadProducts();
+            productsList.ItemsSource = products;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddProduct ap = new AddProduct();
+            ap.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            FarmersMarket fm = (FarmersMarket)productsList.SelectedItem;
+            DatabaseConnection.DeleteProduct(fm._id);
         }
     }
 }

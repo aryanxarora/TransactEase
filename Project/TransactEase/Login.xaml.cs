@@ -17,7 +17,7 @@ namespace TransactEase
             int _accountNumber = int.Parse(accountNumber.Text);
             string _password = password.Text;
 
-            if (_accountNumber == 0000 && _password == "admin")
+            if (_accountNumber == 280900 && _password == "admin")
             {
                 MainWindow ap = new MainWindow();
                 ap.Show();

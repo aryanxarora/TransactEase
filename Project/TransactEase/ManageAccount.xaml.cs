@@ -78,6 +78,7 @@ namespace TransactEase
                 Double changeamount = Double.Parse(amount.Text);
                 account.AccountBalance = account.AccountBalance + changeamount;
                 customerBalance.SetValue(Label.ContentProperty ,"$" + account.AccountBalance);
+                transactions.Add(new Transaction(31, "Deposit", changeamount, 0.00));
                 DatabaseConnection.UpdateAccount(account);
             }
             
@@ -94,6 +95,7 @@ namespace TransactEase
                 Double changeamount = Double.Parse(amount.Text);
                 account.AccountBalance = account.AccountBalance - changeamount;
                 customerBalance.SetValue(Label.ContentProperty, "$" + account.AccountBalance);
+                transactions.Add(new Transaction(32, "Withdraw", 0.00, changeamount));
                 DatabaseConnection.UpdateAccount(account);
             }
         }

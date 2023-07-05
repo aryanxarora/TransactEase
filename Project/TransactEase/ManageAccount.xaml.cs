@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TransactEase
 {
-    /// <summary>
-    /// Interaction logic for ManageAccount.xaml
-    /// </summary>
     public partial class ManageAccount : Window
     {
         public List<Transaction> transactions
@@ -69,6 +66,36 @@ namespace TransactEase
             transactions.Add(new Transaction(30, "Stock investment", 1000.00, 0.00));
 
             DataContext = this;
-        } 
+        }
+
+        private void deposit_Click(object sender, RoutedEventArgs e)
+        {
+            if(amount.Text == "" || amount.Text == "0")
+            {
+                MessageBox.Show("Enter Amount!", "Error");
+            } else
+            {
+                Double changeamount = Double.Parse(amount.Text);
+                account.AccountBalance = account.AccountBalance + changeamount;
+                customerBalance.SetValue(Label.ContentProperty ,"$" + account.AccountBalance);
+                DatabaseConnection.UpdateAccount(account);
+            }
+            
+        }
+
+        private void withdraw_Click(object sender, RoutedEventArgs e)
+        {
+            if (amount.Text == "" || amount.Text == "0")
+            {
+                MessageBox.Show("Enter Amount!", "Error");
+            }
+            else
+            {
+                Double changeamount = Double.Parse(amount.Text);
+                account.AccountBalance = account.AccountBalance - changeamount;
+                customerBalance.SetValue(Label.ContentProperty, "$" + account.AccountBalance);
+                DatabaseConnection.UpdateAccount(account);
+            }
+        }
     }
 }

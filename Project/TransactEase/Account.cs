@@ -53,6 +53,7 @@ namespace TransactEase
         public double AccountBalance
         {
             get { return accountBalance; }
+            set { accountBalance = value; }
         }
 
         public String Password

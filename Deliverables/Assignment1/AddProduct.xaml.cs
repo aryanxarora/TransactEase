@@ -26,13 +26,7 @@ namespace Assignment1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Random rand = new Random();
-            int id = rand.Next(1000000, 9999999);
-            string _name = name.Text;
-            double _weight = Double.Parse(weight.Text);
-            double _price = Double.Parse(price.Text);
-            FarmersMarket fm = new FarmersMarket(id, _name, _weight, _price);
-            DatabaseConnection.AddProduct(fm);
+
         }
     }
 }

@@ -28,16 +28,43 @@ namespace Assignment1
         public MainWindow()
         {
             InitializeComponent();
+            products = new List<FarmersMarket>();
+            productsList.ItemsSource = products;
 
-            products = DatabaseConnection.ReadProducts();
+            DatabaseConnection.UpdateProduct(new FarmersMarket("Apple", 23, 2.1));
+            DatabaseConnection.UpdateProduct(new FarmersMarket("Orange", 20, 2.49));
+            DatabaseConnection.UpdateProduct(new FarmersMarket("Raspberry", 25, 2.35));
+            DatabaseConnection.UpdateProduct(new FarmersMarket("Blueberry", 29, 1.45));
+            DatabaseConnection.UpdateProduct(new FarmersMarket("Cauliflower", 24, 2.22));
 
+            DataContext = this;
+        }
+
+        private void refreshProducts()
+        {
+            productsList.ItemsSource = products;
+            productsList.Items.Refresh();
             DataContext = this;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            products = DatabaseConnection.ReadProducts();
-            productsList.ItemsSource = products;
+            List<FarmersMarket> inventory = DatabaseConnection.ReadProducts();
+            int choice = selectProduct.SelectedIndex;
+            double purchase = Double.Parse(weight.Text);
+            if (inventory != null && inventory[choice]._weight < purchase)
+            {
+                MessageBox.Show("Inventory is low cannot make purchase", "Sorry!");
+            } else
+            {
+                FarmersMarket item = new FarmersMarket(inventory[choice]._name, purchase, inventory[choice]._price * purchase);
+                products.Add(item);
+                double sum = Double.Parse(totalPrice.Content.ToString());
+                sum += inventory[choice]._price * purchase;
+                totalPrice.SetValue(Label.ContentProperty, sum);
+                DatabaseConnection.UpdateProduct(new FarmersMarket(inventory[choice]._name, inventory[choice]._weight - purchase, inventory[choice]._price));
+                refreshProducts();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -49,7 +76,7 @@ namespace Assignment1
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             FarmersMarket fm = (FarmersMarket)productsList.SelectedItem;
-            DatabaseConnection.DeleteProduct(fm._id);
+            DatabaseConnection.DeleteProduct(fm._name);
         }
     }
 }

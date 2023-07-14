@@ -24,7 +24,6 @@ namespace Assignment1
             {
                 collection.InsertOne(new BsonDocument
                 {
-                    {"id" , fm._id},
                     {"name", fm._name},
                     {"weight", fm._weight},
                     {"price", fm._price}
@@ -51,7 +50,7 @@ namespace Assignment1
 
             foreach (var document in documents)
             {
-                FarmersMarket product = new FarmersMarket(document["id"].AsInt32, document["name"].AsString, document["weight"].AsDouble, document["price"].AsDouble);
+                FarmersMarket product = new FarmersMarket(document["name"].AsString, document["weight"].AsDouble, document["price"].AsDouble);
                 products.Add(product);
             }
 
@@ -66,7 +65,7 @@ namespace Assignment1
             var client = new MongoClient(settings);
             var collection = client.GetDatabase("transactease").GetCollection<BsonDocument>("products");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("id", fm._id);
+            var filter = Builders<BsonDocument>.Filter.Eq("name", fm._name);
             var update = Builders<BsonDocument>.Update
                 .Set("name", fm._name)
                 .Set("weight", fm._weight)
@@ -75,14 +74,14 @@ namespace Assignment1
             collection.UpdateOne(filter, update);
         }
 
-        public static void DeleteProduct(int id)
+        public static void DeleteProduct(string name)
         {
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
             var collection = client.GetDatabase("transactease").GetCollection<BsonDocument>("products");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("id", id);
+            var filter = Builders<BsonDocument>.Filter.Eq("name", name);
             collection.DeleteOne(filter);
         }
 

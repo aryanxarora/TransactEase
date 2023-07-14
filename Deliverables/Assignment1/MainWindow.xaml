@@ -5,23 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Shopping Cart" Height="460" Width="800">
     <Grid>
-        <Label Content="Farmers Market" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="By Aryan Arora" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="704,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="704,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <ListView x:Name="productsList" HorizontalAlignment="Left" Height="316" Margin="10,83,0,0" VerticalAlignment="Top" Width="769"  ItemsSource="{Binding products}">
+        <Label Content="Farmers Market" HorizontalAlignment="Left" Margin="25,12,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label Content="By Aryan Arora" HorizontalAlignment="Left" Margin="25,43,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="productsList" HorizontalAlignment="Left" Height="254" Margin="25,83,0,0" VerticalAlignment="Top" Width="515"  ItemsSource="{Binding products}">
             <ListView.View>
-                <GridView> 
-                    <GridViewColumn DisplayMemberBinding="{Binding _id}" Header="Product ID" Width="150"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding _name}" Header="Product Name" Width="300"></GridViewColumn>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding _name}" Header="Product Name" Width="200"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding _weight}" Header="Weight (kg)" Width="150"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding _price}" Header="Price" Width="150"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Refresh" HorizontalAlignment="Left" Margin="612,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="25,359,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="totalPrice" Content="0.0" HorizontalAlignment="Right" Margin="0,385,654,0" VerticalAlignment="Top" Width="89" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lable248075" Content="$" HorizontalAlignment="Right" Margin="0,385,743,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Add Product" HorizontalAlignment="Left" Margin="595,83,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Product" HorizontalAlignment="Left" Margin="595,137,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="selectProduct" HorizontalAlignment="Left" Margin="601,168,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Apple"/>
+            <ComboBoxItem Content="Orange"/>
+            <ComboBoxItem Content="Raspberry"/>
+            <ComboBoxItem Content="BlueBerry"/>
+            <ComboBoxItem Content="Cauliflower"/>
+        </ComboBox>
+        <Label Content="Weight" HorizontalAlignment="Left" Margin="595,208,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="weight" HorizontalAlignment="Left" Height="23" Margin="601,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="addProduct" Content="Add" HorizontalAlignment="Left" Margin="601,289,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="689,236,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
